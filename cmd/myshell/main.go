@@ -32,11 +32,12 @@ func main() {
 		cmd = cmd[:len(cmd)-1]
 
 		if strings.HasPrefix(cmd, "type ") {
-			if slices.Contains(allowedCmd, cmd) {
-				fmt.Printf("%s: is a shell builtin", cmd)
+			cmdToCheck := strings.TrimPrefix(cmd, "type ")
+			if slices.Contains(allowedCmd, cmdToCheck) {
+				fmt.Printf("%s: is a shell builtin\n", cmdToCheck)
 				continue
 			} else {
-				fmt.Printf("%s: not found", cmd)
+				fmt.Printf("%s: not found\n", cmdToCheck)
 				continue
 			}
 
@@ -50,6 +51,5 @@ func main() {
 			fmt.Printf("%s: command not found\n", cmd)
 			continue
 		}
-		continue
 	}
 }
