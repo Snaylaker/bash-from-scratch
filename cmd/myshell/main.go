@@ -25,9 +25,14 @@ func main() {
 
 		cmd = cmd[:len(cmd)-1]
 
+		if cmd == "exit 0" {
+			os.Exit(0)
+		}
+
 		if !slices.Contains(allowedCmd, cmd) {
 			fmt.Printf("%s: command not found\n", cmd)
 			continue
 		}
+
 	}
 }
