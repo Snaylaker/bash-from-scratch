@@ -27,6 +27,7 @@ func main() {
 
 		if !slices.Contains(allowedCmd, cmd) {
 			fmt.Printf("%s: command not found\n", cmd)
+			break
 		}
 	}
 }
