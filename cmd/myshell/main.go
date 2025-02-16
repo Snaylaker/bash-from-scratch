@@ -13,7 +13,7 @@ var _ = fmt.Fprint
 
 func main() {
 	// Uncomment this block to pass the first stage
-	allowedCmd := []string{"echo", "exit"}
+	allowedCmd := []string{"echo", "exit", "type"}
 	// Wait for user input
 	for {
 		fmt.Fprint(os.Stdout, "$ ")
