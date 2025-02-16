@@ -13,7 +13,7 @@ var _ = fmt.Fprint
 
 func main() {
 	// Uncomment this block to pass the first stage
-	allowedCmd := []string{"ls", "cd"}
+	allowedCmd := []string{"ls", "cd", "echo"}
 	// Wait for user input
 	for {
 		fmt.Fprint(os.Stdout, "$ ")
@@ -29,12 +29,14 @@ func main() {
 
 		if strings.HasPrefix(cmd, "echo ") {
 			result := strings.TrimPrefix(cmd, "echo ")
-			fmt.Print(result + "\r\n")
+			fmt.Print(result + "\r")
+			continue
 		}
 
 		cmd = cmd[:len(cmd)-1]
 		if !slices.Contains(allowedCmd, cmd) {
 			fmt.Printf("%s: command not found\n", cmd)
+			continue
 		}
 		continue
 	}
