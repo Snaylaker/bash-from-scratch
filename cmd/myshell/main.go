@@ -30,8 +30,8 @@ func main() {
 			os.Exit(0)
 		}
 
-		if strings.HasPrefix("echo ") {
-			result := strings.TrimPrefix("echo ")
+		if strings.HasPrefix(cmd, "echo ") {
+			result := strings.TrimPrefix(cmd, "echo ")
 			fmt.Print(result)
 		}
 
