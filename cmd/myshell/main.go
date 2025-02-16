@@ -16,16 +16,17 @@ func main() {
 
 	allowedCmd := []string{"ls", "cd"}
 	// Wait for user input
-	cmd, err := bufio.NewReader(os.Stdin).ReadString('\n')
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
+	for {
+		cmd, err := bufio.NewReader(os.Stdin).ReadString('\n')
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
 
-	cmd = cmd[:len(cmd)-1]
+		cmd = cmd[:len(cmd)-1]
 
-	if !slices.Contains(allowedCmd, cmd) {
-		fmt.Printf("%s: command not found\n", cmd)
+		if !slices.Contains(allowedCmd, cmd) {
+			fmt.Printf("%s: command not found\n", cmd)
+		}
 	}
-	main()
 }
