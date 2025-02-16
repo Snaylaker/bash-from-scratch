@@ -37,6 +37,7 @@ func main() {
 				continue
 			} else {
 				fmt.Printf("%s: not found", cmd)
+				continue
 			}
 
 		}
