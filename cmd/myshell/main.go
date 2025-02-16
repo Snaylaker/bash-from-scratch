@@ -12,10 +12,11 @@ var _ = fmt.Fprint
 
 func main() {
 	// Uncomment this block to pass the first stage
-	fmt.Fprint(os.Stdout, "$ ")
 	allowedCmd := []string{"ls", "cd"}
 	// Wait for user input
 	for {
+
+		fmt.Fprint(os.Stdout, "$ ")
 		cmd, err := bufio.NewReader(os.Stdin).ReadString('\n')
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
