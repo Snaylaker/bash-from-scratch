@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"slices"
+	"strings"
 )
 
 // Ensures gofmt doesn't remove the "fmt" import in stage 1 (feel free to remove this!)
@@ -29,10 +30,15 @@ func main() {
 			os.Exit(0)
 		}
 
+		if strings.HasPrefix("echo ") {
+			result := strings.TrimPrefix("echo ")
+			fmt.Print(result)
+		}
+
 		if !slices.Contains(allowedCmd, cmd) {
 			fmt.Printf("%s: command not found\n", cmd)
-			continue
 		}
+		continue
 
 	}
 }
