@@ -32,7 +32,7 @@ func main() {
 
 		if strings.HasPrefix(cmd, "echo ") {
 			result := strings.TrimPrefix(cmd, "echo ")
-			fmt.Print(result)
+			fmt.Print(result + "\r\n")
 		}
 
 		if !slices.Contains(allowedCmd, cmd) {
