@@ -13,7 +13,7 @@ var _ = fmt.Fprint
 
 func main() {
 	// Uncomment this block to pass the first stage
-	allowedCmd := []string{"ls", "cd", "echo"}
+	allowedCmd := []string{"echo", "exit"}
 	// Wait for user input
 	for {
 		fmt.Fprint(os.Stdout, "$ ")
@@ -30,6 +30,16 @@ func main() {
 		}
 
 		cmd = cmd[:len(cmd)-1]
+
+		if strings.HasPrefix(cmd, "type ") {
+			if slices.Contains(allowedCmd, cmd) {
+				fmt.Printf("%s: is a shell builtin", cmd)
+				continue
+			} else {
+				fmt.Printf("%s: not found", cmd)
+			}
+
+		}
 
 		if cmd == "exit 0" {
 			os.Exit(0)
