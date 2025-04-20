@@ -30,6 +30,7 @@ func main() {
 		if strings.HasPrefix(cmd, Echo) {
 			result := strings.TrimPrefix(cmd, "echo ")
 			fmt.Print(result + "\r")
+			continue
 		}
 
 		cmd = cmd[:len(cmd)-1]
@@ -41,6 +42,7 @@ func main() {
 			} else {
 				fmt.Printf("%s: not found\n", cmdToCheck)
 			}
+			continue
 		}
 
 		if cmd == "exit 0" {
